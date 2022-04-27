@@ -1,0 +1,100 @@
+DB::table('status_kemajuan_kerja_projeks')->insert(['id'=>'1','project_id' => '1', 'fasa_projek' => 'Pengurusan Projek']);
+DB::table('status_kemajuan_kerja_projeks')->insert(['id'=>'2','project_id' => '1', 'fasa_projek' => 'Perkhidmatan Naiktaraf & Rundingan Kepakaran']);
+DB::table('status_kemajuan_kerja_projeks')->insert(['id'=>'3','project_id' => '1', 'fasa_projek' => 'Perkhidmatan Keselamatan dan Kesediaan']);
+DB::table('status_kemajuan_kerja_projeks')->insert(['id'=>'4','project_id' => '1', 'fasa_projek' => 'Perkhidmatan Latihan & Transfer of Technology']);
+
+--------------------------------
+
+DB::table('kumpulan_fasas')->insert(['id'=>'1','fasa_projek_id'=>'1','tajuk_kumpulan'=>'a) Mobilisasi pasukan','tarikh_mula_rancang' => '2021-09-20',  'tarikh_tamat_rancang' => '2021-09-30', 'tarikh_mula_sebenar' => '2021-09-20',  'tarikh_tamat_sebenar' => '2021-09-30', 'peratus_rancang' => '100',  'peratus_sebenar' => '100', 'status' => 'Selesai']);
+DB::table('kumpulan_fasas')->insert(['id'=>'2','fasa_projek_id'=>'1','tajuk_kumpulan'=>'b) Pengurusan Kontrak','tarikh_mula_rancang' => '2021-10-01',  'tarikh_tamat_rancang' => '2021-11-02', 'tarikh_mula_sebenar' => '2021-10-01',  'tarikh_tamat_sebenar' => '2021-11-02', 'peratus_rancang' => '80',   'peratus_sebenar' => '60',  'status' => 'Dalam Tindakan rundingan Jadual Bayaran']);
+DB::table('kumpulan_fasas')->insert(['id'=>'3','fasa_projek_id'=>'1','tajuk_kumpulan'=>'c) Pengurusan Mesyuarat']);
+DB::table('kumpulan_fasas')->insert(['id'=>'4','fasa_projek_id'=>'2','tajuk_kumpulan'=>'a) Pembangunan Portal']);
+DB::table('kumpulan_fasas')->insert(['id'=>'5','fasa_projek_id'=>'2','tajuk_kumpulan'=>'b) Pembangunan Aplikasi Mobile']);
+DB::table('kumpulan_fasas')->insert(['id'=>'6','fasa_projek_id'=>'3','tajuk_kumpulan'=>'a) Sistem Healthcheck Portal & aplikasi mobile (sesi 1)', 'tarikh_mula_rancang' => '2021-10-14',  'tarikh_tamat_rancang' => '2021-11-11', 'tarikh_mula_sebenar' => '2021-10-14',  'tarikh_tamat_sebenar' => '2021-11-19', 'peratus_rancang' => '0.5',  'peratus_sebenar' => '0.4', 'status' => 'Dalam Tindakan']);
+DB::table('kumpulan_fasas')->insert(['id'=>'7','fasa_projek_id'=>'4','tajuk_kumpulan'=>'a) Latihan Teknikal (7 sesi)']);
+DB::table('kumpulan_fasas')->insert();
+
+
+--------------------------------
+
+DB::table('sub_kumpulan_fasas')->insert(['id'=>'1', 'kumpulan_fasa_id'=>'3', 'tajuk_kumpulan'=>'Mesyuarat Kickoff Projek', 'tarikh_mula_rancang'=>'2021-10-01', 'tarikh_tamat_rancang'=>'2021-10-01', 'tarikh_mula_sebenar'=>'2021-10-01', 'tarikh_tamat_sebenar'=>'2021-10-01', 'peratus_rancang'=>'100', 'peratus_sebenar'=>'100', 'status'=>'Selesai']);
+DB::table('sub_kumpulan_fasas')->insert(['id'=>'2', 'kumpulan_fasa_id'=>'3', 'tajuk_kumpulan'=>'Mesyuarat Projek Bilangan 1-2021', 'tarikh_mula_rancang'=>'2021-11-08', 'tarikh_tamat_rancang'=>'2021-11-08', 'tarikh_mula_sebenar'=>'2021-11-08', 'tarikh_tamat_sebenar'=>'2021-11-08', 'peratus_rancang'=>'100', 'peratus_sebenar'=>'100', 'status'=>'Selesai']);
+DB::table('sub_kumpulan_fasas')->insert(['id'=>'3', 'kumpulan_fasa_id'=>'3', 'tajuk_kumpulan'=>'Mesyuarat JTP Bilangan 1-2021', 'tarikh_mula_rancang'=>'2021-11-11', 'tarikh_tamat_rancang'=>'2021-11-11', 'tarikh_mula_sebenar'=>'2021-11-11', 'tarikh_tamat_sebenar'=>'2021-11-11', 'peratus_rancang'=>'100', 'peratus_sebenar'=>'100', 'status'=>'Selesai']);
+DB::table('sub_kumpulan_fasas')->insert(['id'=>'4', 'kumpulan_fasa_id'=>'3', 'tajuk_kumpulan'=>'Mesyuarat Jawatankuasa Pemandu Projek', 'tarikh_mula_rancang'=>'2021-11-12', 'tarikh_tamat_rancang'=>'2021-11-12', 'tarikh_mula_sebenar'=>'2021-11-12', 'tarikh_tamat_sebenar'=>'2021-11-12', 'peratus_rancang'=>'100', 'peratus_sebenar'=>'50', 'status'=>'Dalam Tindakan']);
+DB::table('sub_kumpulan_fasas')->insert(['id'=>'5', 'kumpulan_fasa_id'=>'4', 'tajuk_kumpulan'=>'Fasa Keperluan (Dokumen BRS dan SRS)', 'tarikh_mula_rancang'=>'2021-10-18', 'tarikh_tamat_rancang'=>'2021-11-11', 'tarikh_mula_sebenar'=>'2021-10-18', 'tarikh_tamat_sebenar'=>'2021-11-19', 'peratus_rancang'=>'6', 'peratus_sebenar'=>'2.8', 'status'=>'Dalam Tindakan']);
+DB::table('sub_kumpulan_fasas')->insert(['id'=>'6', 'kumpulan_fasa_id'=>'4', 'tajuk_kumpulan'=>'Fasa Rekabentuk (Dokumen SDS)', 'tarikh_mula_rancang'=>'2021-11-10', 'tarikh_tamat_rancang'=>'2021-12-24', 'peratus_rancang'=>'4', 'peratus_sebenar'=>'1', 'status'=>'Dalam Tindakan Syarikat']);
+DB::table('sub_kumpulan_fasas')->insert(['id'=>'7', 'kumpulan_fasa_id'=>'4', 'tajuk_kumpulan'=>'Fasa Pembangunan Portal', 'tarikh_mula_rancang'=>'2021-12-25', 'tarikh_tamat_rancang'=>'2022-03-30', 'peratus_rancang'=>'51', 'peratus_sebenar'=>'0', 'status'=>'Belum Mula']);
+DB::table('sub_kumpulan_fasas')->insert(['id'=>'8', 'kumpulan_fasa_id'=>'5', 'tajuk_kumpulan'=>'Fasa Keperluan (Dokumen BRS dan SRS)', 'tarikh_mula_rancang'=>'2021-10-18', 'tarikh_tamat_rancang'=>'2021-11-11', 'tarikh_mula_sebenar'=>'2021-10-18', 'tarikh_tamat_sebenar'=>'2021-11-19', 'peratus_rancang'=>'6', 'peratus_sebenar'=>'2.8', 'status'=>'Dalam Tindakan']);
+DB::table('sub_kumpulan_fasas')->insert(['id'=>'9', 'kumpulan_fasa_id'=>'5', 'tajuk_kumpulan'=>'Fasa Rekabentuk (Dokumen SDS)', 'tarikh_mula_rancang'=>'2021-11-10', 'tarikh_tamat_rancang'=>'2021-12-24', 'peratus_rancang'=>'4', 'peratus_sebenar'=>'1', 'status'=>'Dalam Tindakan Syarikat']);
+DB::table('sub_kumpulan_fasas')->insert(['id'=>'10', 'kumpulan_fasa_id'=>'5', 'tajuk_kumpulan'=>'Fasa Pembangunan', 'tarikh_mula_rancang'=>'2021-12-25', 'tarikh_tamat_rancang'=>'2022-03-30', 'peratus_rancang'=>'15', 'peratus_sebenar'=>'0', 'status'=>'Belum Mula']);
+DB::table('sub_kumpulan_fasas')->insert(['id'=>'11', 'kumpulan_fasa_id'=>'7', 'tajuk_kumpulan'=>'Latihan GitLab', 'tarikh_mula_rancang'=>'2021-11-22', 'tarikh_tamat_rancang'=>'2021-11-26', 'tarikh_mula_sebenar'=>'2021-11-22', 'tarikh_tamat_sebenar'=>'2021-11-26', 'peratus_rancang'=>'0', 'peratus_sebenar'=>'0', 'status'=>'Belum Mula']);
+DB::table('sub_kumpulan_fasas')->insert(['id'=>'12', 'kumpulan_fasa_id'=>'7', 'tajuk_kumpulan'=>'Latihan Flutter & Dart', 'tarikh_mula_rancang'=>'2021-11-29', 'tarikh_tamat_rancang'=>'2021-12-03', 'tarikh_mula_sebenar'=>'2021-11-29', 'tarikh_tamat_sebenar'=>'2021-12-03', 'peratus_rancang'=>'0', 'peratus_sebenar'=>'0', 'status'=>'Belum Mula']);
+DB::table('sub_kumpulan_fasas')->insert(['id'=>'13', 'kumpulan_fasa_id'=>'7', 'tajuk_kumpulan'=>'Latihan Laravel', 'tarikh_mula_rancang'=>'2021-12-06', 'tarikh_tamat_rancang'=>'2021-12-10', 'tarikh_mula_sebenar'=>'2021-12-06', 'tarikh_tamat_sebenar'=>'2021-12-10', 'peratus_rancang'=>'0', 'peratus_sebenar'=>'0', 'status'=>'Belum Mula']);
+DB::table('sub_kumpulan_fasas')->insert(['id'=>'14', 'kumpulan_fasa_id'=>'7', 'tajuk_kumpulan'=>'Latihan CMS', 'tarikh_mula_rancang'=>'2021-12-13', 'tarikh_tamat_rancang'=>'2021-12-17', 'tarikh_mula_sebenar'=>'2021-12-13', 'tarikh_tamat_sebenar'=>'2021-12-17', 'peratus_rancang'=>'0', 'peratus_sebenar'=>'0', 'status'=>'Belum Mula']);
+DB::table('sub_kumpulan_fasas')->insert();
+
+---------------------------------------
+
+['id'=>'1', 'tahun'=>'2021', 'bulan'=>'Okt', 'nilai_kontrak'=>'0', 'jadual_tuntutan'=>'', 'telah_dituntut'=>'', 'belum_dituntut'=>'', 'telah_dibayar'=>'', 'belum_dibayar'=>'', 'tarikh'=>'']
+['id'=>'2', 'tahun'=>'2021', 'bulan'=>'Nov', 'nilai_kontrak'=>'28115.00', 'jadual_tuntutan'=>'28115.00', 'telah_dituntut'=>'', 'belum_dituntut'=>'', 'telah_dibayar'=>'', 'belum_dibayar'=>'', 'tarikh'=>'']
+['id'=>'3', 'tahun'=>'2021', 'bulan'=>'Dis', 'nilai_kontrak'=>'26040.00', 'jadual_tuntutan'=>'26040.00', 'telah_dituntut'=>'', 'belum_dituntut'=>'', 'telah_dibayar'=>'', 'belum_dibayar'=>'', 'tarikh'=>'']
+['id'=>'4', 'tahun'=>'2022', 'bulan'=>'Jan', 'nilai_kontrak'=>'31790.00', 'jadual_tuntutan'=>'', 'telah_dituntut'=>'', 'belum_dituntut'=>'', 'telah_dibayar'=>'', 'belum_dibayar'=>'', 'tarikh'=>'']
+['id'=>'5', 'tahun'=>'2022', 'bulan'=>'Feb', 'nilai_kontrak'=>'48080.00', 'jadual_tuntutan'=>'', 'telah_dituntut'=>'', 'belum_dituntut'=>'', 'telah_dibayar'=>'', 'belum_dibayar'=>'', 'tarikh'=>'']
+['id'=>'6', 'tahun'=>'2022', 'bulan'=>'Mac', 'nilai_kontrak'=>'48080.00', 'jadual_tuntutan'=>'', 'telah_dituntut'=>'', 'belum_dituntut'=>'', 'telah_dibayar'=>'', 'belum_dibayar'=>'', 'tarikh'=>'']
+['id'=>'7', 'tahun'=>'2022', 'bulan'=>'Apr', 'nilai_kontrak'=>'75870.00', 'jadual_tuntutan'=>'', 'telah_dituntut'=>'', 'belum_dituntut'=>'', 'telah_dibayar'=>'', 'belum_dibayar'=>'', 'tarikh'=>'']
+['id'=>'8', 'tahun'=>'2022', 'bulan'=>'Mei', 'nilai_kontrak'=>'3050.00', 'jadual_tuntutan'=>'', 'telah_dituntut'=>'', 'belum_dituntut'=>'', 'telah_dibayar'=>'', 'belum_dibayar'=>'', 'tarikh'=>'']
+['id'=>'9', 'tahun'=>'2022', 'bulan'=>'Jun', 'nilai_kontrak'=>'18675.00', 'jadual_tuntutan'=>'', 'telah_dituntut'=>'', 'belum_dituntut'=>'', 'telah_dibayar'=>'', 'belum_dibayar'=>'', 'tarikh'=>'']
+['id'=>'10', 'tahun'=>'2022', 'bulan'=>'Jul', 'nilai_kontrak'=>'6000.00', 'jadual_tuntutan'=>'', 'telah_dituntut'=>'', 'belum_dituntut'=>'', 'telah_dibayar'=>'', 'belum_dibayar'=>'', 'tarikh'=>'']
+['id'=>'11', 'tahun'=>'2022', 'bulan'=>'Ogos', 'nilai_kontrak'=>'13800.00', 'jadual_tuntutan'=>'', 'telah_dituntut'=>'', 'belum_dituntut'=>'', 'telah_dibayar'=>'', 'belum_dibayar'=>'', 'tarikh'=>'']
+['id'=>'12', 'tahun'=>'2022', 'bulan'=>'Sep', 'nilai_kontrak'=>'13800.00', 'jadual_tuntutan'=>'', 'telah_dituntut'=>'', 'belum_dituntut'=>'', 'telah_dibayar'=>'', 'belum_dibayar'=>'', 'tarikh'=>'']
+
+DB::table('status_kemajuan_kewangan_projeks')->insert(['project_id'=>'1', 'id'=>'1', 'tahun'=>'2021', 'bulan'=>'Okt', 'nilai_kontrak'=>'0']);
+DB::table('status_kemajuan_kewangan_projeks')->insert(['project_id'=>'1', 'id'=>'2', 'tahun'=>'2021', 'bulan'=>'Nov', 'nilai_kontrak'=>'28115.00', 'jadual_tuntutan'=>'28115.00']);
+DB::table('status_kemajuan_kewangan_projeks')->insert(['project_id'=>'1', 'id'=>'3', 'tahun'=>'2021', 'bulan'=>'Dis', 'nilai_kontrak'=>'26040.00', 'jadual_tuntutan'=>'26040.00']);
+DB::table('status_kemajuan_kewangan_projeks')->insert(['project_id'=>'1', 'id'=>'4', 'tahun'=>'2022', 'bulan'=>'Jan', 'nilai_kontrak'=>'31790.00']);
+DB::table('status_kemajuan_kewangan_projeks')->insert(['project_id'=>'1', 'id'=>'5', 'tahun'=>'2022', 'bulan'=>'Feb', 'nilai_kontrak'=>'48080.00']);
+DB::table('status_kemajuan_kewangan_projeks')->insert(['project_id'=>'1', 'id'=>'6', 'tahun'=>'2022', 'bulan'=>'Mac', 'nilai_kontrak'=>'48080.00']);
+DB::table('status_kemajuan_kewangan_projeks')->insert(['project_id'=>'1', 'id'=>'7', 'tahun'=>'2022', 'bulan'=>'Apr', 'nilai_kontrak'=>'75870.00']);
+DB::table('status_kemajuan_kewangan_projeks')->insert(['project_id'=>'1', 'id'=>'8', 'tahun'=>'2022', 'bulan'=>'Mei', 'nilai_kontrak'=>'3050.00']);
+DB::table('status_kemajuan_kewangan_projeks')->insert(['project_id'=>'1', 'id'=>'9', 'tahun'=>'2022', 'bulan'=>'Jun', 'nilai_kontrak'=>'18675.00']);
+DB::table('status_kemajuan_kewangan_projeks')->insert(['project_id'=>'1', 'id'=>'10', 'tahun'=>'2022', 'bulan'=>'Jul', 'nilai_kontrak'=>'6000.00']);
+DB::table('status_kemajuan_kewangan_projeks')->insert(['project_id'=>'1', 'id'=>'11', 'tahun'=>'2022', 'bulan'=>'Ogos', 'nilai_kontrak'=>'13800.00']);
+DB::table('status_kemajuan_kewangan_projeks')->insert(['project_id'=>'1', 'id'=>'12', 'tahun'=>'2022', 'bulan'=>'Sep', 'nilai_kontrak'=>'13800.00']);
+
+---------------------------
+
+DB::table('project_cards')->insert(['project_id'=>'1','id'=>'1','tajuk_besar'=>'Milestone','content'=>'<p><img style="width: 70%; display: block; margin-left: auto; margin-right: auto;" src="/img/project-timeline-template.png" alt="" /></p><p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p><p><a class="text-decoration-none" href="https://ilearn.marist.edu/access/lessonbuilder/item/172134/group/e0d1b466-ea21-433b-8926-c41f19455217/Course%20Materials/SamplePDF.pdf"> Milestone - My First Project(1).pdf</a></p><p><a class="text-decoration-none" href="https://ilearn.marist.edu/access/lessonbuilder/item/172134/group/e0d1b466-ea21-433b-8926-c41f19455217/Course%20Materials/SamplePDF.pdf"> Milestone - My First Project(1) - updated.pdf</a></p>']);
+DB::table('project_cards')->insert(['project_id'=>'1','id'=>'2','tajuk_besar'=>'Meeting 1','content'=>'<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><p>Meeting Recording:&nbsp;<a href="https://www.youtube.com/watch?v=5Peo-ivmupE">recording.mp4</a></p><p>Meeting Summary:&nbsp;<a href="https://ilearn.marist.edu/access/lessonbuilder/item/172134/group/e0d1b466-ea21-433b-8926-c41f19455217/Course%20Materials/SamplePDF.pdf">Meeting Minutes 1.pdf</a></p><p>&nbsp;</p>']);
+DB::table('project_cards')->insert(['project_id'=>'1','id'=>'3','tajuk_besar'=>'','content'=>'']);
+DB::table('project_cards')->insert(['project_id'=>'1','id'=>'4','tajuk_besar'=>'','content'=>'']);
+DB::table('project_cards')->insert(['project_id'=>'1','id'=>'5','tajuk_besar'=>'','content'=>'']);
+
+User::factory()->has(profile::factory())->has(role::factory())->count(100)->create();
+User::factory()->has(profile::factory())->has(role::factory())->count(100)->state(['status'=>'0',])->create();
+User::factory()->has(profile::factory())->has(role::factory()->state(['superuser'=>'1',]))->count(100)->create();
+User::factory()->has(profile::factory())->has(role::factory()->state(['staffuser'=>'1',]))->count(100)->create();
+User::factory()->has(profile::factory())->has(role::factory()->state(['superuser'=>'1','staffuser'=>'1',]))->count(100)->create();
+User::factory()->has(profile::factory())->has(role::factory()->state(['superuser'=>'1',]))->state(['status'=>'0',])->count(100)->create();
+User::factory()->has(profile::factory())->has(role::factory()->state(['staffuser'=>'1',]))->state(['status'=>'0',])->count(100)->create();
+User::factory()->has(profile::factory())->has(role::factory()->state(['superuser'=>'1','staffuser'=>'1',]))->state(['status'=>'0',])->count(100)->create();
+
+User::factory()->has(profile::factory())->has(role::factory())->count(100)->create();
+
+project::factory()->has(user_project::factory())->count(1)->create();
+
+user_project::factory()->count(1)->state(['user_id'=>'2', 'project_id'=>'1002'])->create();
+
+vendor::factory()->has(vendor_profile::factory())->count(1)->create();
+
+
+project_card::factory()->has(card_view::factory())->count(1)->state(['project_id'=>'1'])->create();
+
+=============================
+
+User::factory()->has(profile::factory())->has(role::factory())->count(100)->create();
+
+project::factory()->has(user_project::factory())->count(1)->create();
+
+vendor::factory()->has(vendor_profile::factory())->count(1)->create();
+
+
