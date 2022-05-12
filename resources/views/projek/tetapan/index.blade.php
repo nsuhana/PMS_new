@@ -159,6 +159,24 @@
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
             </div>
             <select name="status" id="status" class="form-select mx-md-3 mx-0 mb-2 mb-md-0" style="padding-left: 9px; padding-right: 27px; background-position: right 0.75rem center !important;">
+                <option value="ikut jadual"
+                @if ($project->status === 'ikut jadual')
+                selected
+                @endif>{{__('Ikut Jadual')}}</option>
+                <option value="dalam perlaksanaan" 
+                @if ($project->status === 'dalam perlaksanaan')
+                selected
+                @endif>{{__('Dalam Perlaksanaan')}}</option>
+                <option value="projek lewat"
+                @if ($project->status === 'projek lewat')
+                selected
+                @endif>{{__('Projek Lewat')}}</option>
+                <option value="projek sakit"
+                @if ($project->status === 'projek sakit')
+                selected
+                @endif>{{__('Projek Sakit')}}</option>
+            </select>
+            {{-- <select name="status" id="status" class="form-select mx-md-3 mx-0 mb-2 mb-md-0" style="padding-left: 9px; padding-right: 27px; background-position: right 0.75rem center !important;">
                 <option value="selesai"
                 @if ($project->status === 'selesai')
                 selected
@@ -171,7 +189,7 @@
                 @if ($project->status === 'tidak aktif')
                 selected
                 @endif>{{__('Tidak Aktif')}}</option>
-            </select>
+            </select> --}}
             <button class="btn btn-primary" type="submit">{{__('Tukar')}}</button>
         </div>
     </form>
@@ -181,7 +199,7 @@
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
     </div>
     <div class="my-2">
-        <button class="btn btn-outline-primary" onClick="lihatLog({{$project->id}})">{{__('Lihat Log Komen')}}</button>
+        <button class="btn btn-outline-primary" onClick="lihatLog({{{ $project->id }}})">{{__('Lihat Log Komen')}}</button>
     </div>
 
 </div>

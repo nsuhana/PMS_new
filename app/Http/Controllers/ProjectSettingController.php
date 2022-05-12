@@ -55,7 +55,8 @@ class ProjectSettingController extends Controller
         }
 
         $request->validate([
-            'status' => ['required', Rule::in(['aktif', 'tidak aktif', 'selesai'])],
+            // 'status' => ['required', Rule::in(['aktif', 'tidak aktif', 'selesai'])],
+            'status' => ['required', Rule::in(['ikut jadual', 'dalam perlaksanaan', 'projek lewat', 'projek sakit'])],
         ]);
 
         $projek->status = $request->status;
