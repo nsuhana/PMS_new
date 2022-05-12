@@ -25,7 +25,7 @@ class CreateProjectsTable extends Migration
             $table->date('tempoh_mula_kontrak');
             $table->date('tempoh_tamat_kontrak');
             $table->string('skop_projek');
-            $table->string('status')->default('aktif');
+            $table->string('status')->default('ikut jadual');
             $table->boolean('publish')->default('1');
             $table->longText('description');
             $table->softDeletes();

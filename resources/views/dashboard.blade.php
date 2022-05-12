@@ -1,4 +1,3 @@
-
 @extends('base')
 @section('stylesheet')
 <link rel="stylesheet" href="{{ url('circle-percentage.css') }}">
@@ -16,43 +15,45 @@
             height: '450',
             dataFormat: 'json',
             dataSource: {
-            "chart": {
-                "caption": "{{__('Jumlah Projek Berdasarkan Status dan Skop')}}",
-                // "subCaption": "Last year",
-                "numberPrefix": "",
-                "bgColor": "#ffffff",
-                "startingAngle": "310",
-                "showLegend": "1",
-                "defaultCenterLabel": "{{$jumlah_pembekalan}}",
-                "centerLabel": "{{__('Jumlah')}} $label: $value",
-                "centerLabelBold": "1",
-                "showTooltip": "0",
-                "decimals": "0",
-                "theme": "fusion"
-            },
-            "data": [{
-                "label": "{{__('Aktif')}}",
-                "value": "{{$pembekalan_aktif}}"
+                "chart": {
+                    "caption": "{{__('Jumlah Projek Berdasarkan Status dan Skop')}}",
+                    // "subCaption": "Last year",
+                    "numberPrefix": "",
+                    "bgColor": "#ffffff",
+                    "startingAngle": "310",
+                    "showLegend": "1",
+                    "defaultCenterLabel": "{{$jumlah_pembekalan}}",
+                    "centerLabel": "{{__('Jumlah')}} $label: $value",
+                    "centerLabelBold": "1",
+                    "showTooltip": "0",
+                    "decimals": "0",
+                    "theme": "fusion"
                 },
-                {
-                "label": "{{__('Tidak Aktif')}}",
-                "value": "{{$pembekalan_tidak_aktif}}"
-                },
-                {
-                "label": "{{__('Selesai')}}",
-                "value": "{{$pembekalan_selesai}}"
-                }
-            ]
+                "data": [{
+                        "label": "{{__('Aktif')}}",
+                        "value": "{{$pembekalan_aktif}}"
+                    },
+                    {
+                        "label": "{{__('Tidak Aktif')}}",
+                        "value": "{{$pembekalan_tidak_aktif}}"
+                    },
+                    {
+                        "label": "{{__('Selesai')}}",
+                        "value": "{{$pembekalan_selesai}}"
+                    }
+                ]
             }
         }).render();
-        });
-
+    });
 </script>
 
 <div class="d-flex flex-column">
     @if (Auth::check())
     <div class="card card-body text-capitalize">{{__('Selamat datang')}}, {{Auth::user()->name}}</div>
     @endif
+
+    @if ($random_projek)
+        
     {{-- 1st row --}}
     <div class="d-flex align-items-center justify-content-between mb-2" style="height: 200px;">
         <div class="w-100 d-flex flex-column align-items-center justify-content-center text-center">
@@ -102,8 +103,7 @@
     </div>
     {{-- 3rd row --}}
 
-
-      <div class="d-flex align-items-stretch justify-content-between mb-2 flex-column flex-md-row">
+    <div class="d-flex align-items-stretch justify-content-between mb-2 flex-column flex-md-row">
         <div class="card shadow mx-2 mb-2 mb-md-0 d-none d-md-block">
             <div class="card-body">
                 <div class="d-flex flex-column">
@@ -117,15 +117,18 @@
                 </div>
             </div>
         </div>
-  <div class="card shadow mx-2 mb-2 mb-md-0 flex-fill d-none d-md-block">
+
+        <div class="card shadow mx-2 mb-2 mb-md-0 flex-fill d-none d-md-block">
             <div class="card-body" style="width: 216px">
                 <div class="d-flex flex-column">
-                    <p class="m-0">{{__('Tajuk Projek')}}</p >
+                    <p class="m-0">{{__('Tajuk Projek')}}</p>
                     <h3 class="text-capitalize">{{$random_projek->tajuk_projek}}</h3>
                     <small>{{__('Pemilik Projek')}}</small>
                     <h6 class="text-capitalize">{{$random_projek->pemilik_projek}}</h6>
                     <small>{{__('Nama Pembekal Dilantik')}}</small>
-                    <a href="/vendor/{{{$random_projek->vendor_id}}}" class="text-decoration-none text-dark"><h6 class="text-capitalize">{{$random_projek->vendor->nama_pembekal_dilantik}}</h6></a>
+                    <a href="/vendor/{{{$random_projek->vendor_id}}}" class="text-decoration-none text-dark">
+                        <h6 class="text-capitalize">{{$random_projek->vendor->nama_pembekal_dilantik}}</h6>
+                    </a>
                     <small>{{__('Skop')}}</small>
                     <h6 class="text-capitalize">{{$random_projek->skop_projek}}</h6>
                     <small>{{__('Status')}}</small>
@@ -177,41 +180,45 @@
                         <small class="text-muted">{{$projek->vendor->nama_pembekal_dilantik}}</small>
                     </div>
                     <div class="col-2 pe-card ps-2">
-                            @if ($projek->editor_comment->isNotEmpty())
-                            <div role="progressbar2" aria-valuenow="{{$projek->editor_comment->last()->peratus_siap}}" aria-valuemin="0" aria-valuemax="100" style="--value:{{$projek->editor_comment->last()->peratus_siap}}">
-                            </div>
-                            @else
-                            <div role="progressbar2" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="--value:0"></div>
-                            @endif
+                        @if ($projek->editor_comment->isNotEmpty())
+                        <div role="progressbar2" aria-valuenow="{{$projek->editor_comment->last()->peratus_siap}}" aria-valuemin="0" aria-valuemax="100" style="--value:{{$projek->editor_comment->last()->peratus_siap}}">
+                        </div>
+                        @else
+                        <div role="progressbar2" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="--value:0"></div>
+                        @endif
                     </div>
                 </div>
                 @endforeach
             </div>
             <div class="card-footer">
                 @if (Auth::check() && Auth::user()->isNotNormalUser())
-                <a class="btn btn-sm btn-link d-block w-100 py-2 text-decoration-none" href="/projek">{{__('Lihat semua projek')}}<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-chevron-right" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                <a class="btn btn-sm btn-link d-block w-100 py-2 text-decoration-none" href="/projek">{{__('Lihat semua projek')}}<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
                     </svg>
                 </a>
                 @else
-                <a class="btn btn-sm btn-link d-block w-100 py-2 text-decoration-none" href="/search/home">{{__('Cari projek')}}<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-chevron-right" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                <a class="btn btn-sm btn-link d-block w-100 py-2 text-decoration-none" href="/search/home">{{__('Cari projek')}}<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
                     </svg>
                 </a>
                 @endif
             </div>
         </div>
     </div>
+
+    @else
+
+    <div class="alert alert-danger my-3">
+        <span>{{__('Tiada data untuk dipaparkan.')}}</span>
+    </div>
+
+    @endif
 </div>
 
 <script>
     function read() {
         var item = {
-            'option' : $('#btn__sorter').val() ? $('#btn__sorter').val(): '',
+            'option': $('#btn__sorter').val() ? $('#btn__sorter').val() : '',
         };
 
         if (item.option == "pembekalan") {
@@ -223,38 +230,37 @@
                     height: '450',
                     dataFormat: 'json',
                     dataSource: {
-                    "chart": {
-                        "caption": "{{__('Jumlah Projek Berdasarkan Status dan Skop')}}",
-                        // "subCaption": "Last year",
-                        "numberPrefix": "",
-                        "bgColor": "#ffffff",
-                        "startingAngle": "310",
-                        "showLegend": "1",
-                        "defaultCenterLabel": "{{$jumlah_pembekalan}}",
-                        "centerLabel": "{{__('Jumlah')}} $label: $value",
-                        "centerLabelBold": "1",
-                        "showTooltip": "0",
-                        "decimals": "0",
-                        "theme": "fusion"
-                    },
-                    "data": [{
-                        "label": "{{__('Aktif')}}",
-                        "value": "{{$pembekalan_aktif}}"
+                        "chart": {
+                            "caption": "{{__('Jumlah Projek Berdasarkan Status dan Skop')}}",
+                            // "subCaption": "Last year",
+                            "numberPrefix": "",
+                            "bgColor": "#ffffff",
+                            "startingAngle": "310",
+                            "showLegend": "1",
+                            "defaultCenterLabel": "{{$jumlah_pembekalan}}",
+                            "centerLabel": "{{__('Jumlah')}} $label: $value",
+                            "centerLabelBold": "1",
+                            "showTooltip": "0",
+                            "decimals": "0",
+                            "theme": "fusion"
                         },
-                        {
-                        "label": "{{__('Tidak Aktif')}}",
-                        "value": "{{$pembekalan_tidak_aktif}}"
-                        },
-                        {
-                        "label": "{{__('Selesai')}}",
-                        "value": "{{$pembekalan_selesai}}"
-                        }
-                    ]
+                        "data": [{
+                                "label": "{{__('Aktif')}}",
+                                "value": "{{$pembekalan_aktif}}"
+                            },
+                            {
+                                "label": "{{__('Tidak Aktif')}}",
+                                "value": "{{$pembekalan_tidak_aktif}}"
+                            },
+                            {
+                                "label": "{{__('Selesai')}}",
+                                "value": "{{$pembekalan_selesai}}"
+                            }
+                        ]
                     }
                 }).render();
-                });
-        }
-        else {
+            });
+        } else {
             FusionCharts.ready(function() {
                 var revenueChart = new FusionCharts({
                     type: 'doughnut2d',
@@ -263,67 +269,67 @@
                     height: '450',
                     dataFormat: 'json',
                     dataSource: {
-                    "chart": {
-                        "caption": "{{__('Jumlah Projek Berdasarkan Status dan Skop')}}",
-                        // "subCaption": "Last year",
-                        "numberPrefix": "",
-                        "bgColor": "#ffffff",
-                        "startingAngle": "310",
-                        "showLegend": "1",
-                        "defaultCenterLabel": "{{$jumlah_perkhidmatan}}",
-                        "centerLabel": "{{__('Jumlah')}} $label: $value",
-                        "centerLabelBold": "1",
-                        "showTooltip": "0",
-                        "decimals": "0",
-                        "theme": "fusion"
-                    },
-                    "data": [{
-                        "label": "{{__('Aktif')}}",
-                        "value": "{{$perkhidmatan_aktif}}"
+                        "chart": {
+                            "caption": "{{__('Jumlah Projek Berdasarkan Status dan Skop')}}",
+                            // "subCaption": "Last year",
+                            "numberPrefix": "",
+                            "bgColor": "#ffffff",
+                            "startingAngle": "310",
+                            "showLegend": "1",
+                            "defaultCenterLabel": "{{$jumlah_perkhidmatan}}",
+                            "centerLabel": "{{__('Jumlah')}} $label: $value",
+                            "centerLabelBold": "1",
+                            "showTooltip": "0",
+                            "decimals": "0",
+                            "theme": "fusion"
                         },
-                        {
-                        "label": "{{__('Tidak Aktif')}}",
-                        "value": "{{$perkhidmatan_tidak_aktif}}"
-                        },
-                        {
-                        "label": "{{__('Selesai')}}",
-                        "value": "{{$perkhidmatan_selesai}}"
-                        }
-                    ]
+                        "data": [{
+                                "label": "{{__('Aktif')}}",
+                                "value": "{{$perkhidmatan_aktif}}"
+                            },
+                            {
+                                "label": "{{__('Tidak Aktif')}}",
+                                "value": "{{$perkhidmatan_tidak_aktif}}"
+                            },
+                            {
+                                "label": "{{__('Selesai')}}",
+                                "value": "{{$perkhidmatan_selesai}}"
+                            }
+                        ]
                     }
                 }).render();
-                });
+            });
         }
     }
 </script>
 
 <script>
     var options = {
-            series: [{
-            name : 'Pembekalan',
+        series: [{
+            name: 'Pembekalan',
             data: ['{{$pembekalan_lebih_5}}', '{{$pembekalan_antara_5_2}}', '{{$pembekalan_kurang_2}}']
         }, {
-            name : 'Perkhidmatan',
+            name: 'Perkhidmatan',
             data: ['{{$perkhidmatan_lebih_5}}', '{{$perkhidmatan_antara_5_2}}', '{{$perkhidmatan_kurang_2}}']
         }],
-            chart: {
+        chart: {
             type: 'bar',
             height: 430
         },
         plotOptions: {
             bar: {
-            horizontal: true,
-            dataLabels: {
-                position: 'top',
-            },
+                horizontal: true,
+                dataLabels: {
+                    position: 'top',
+                },
             }
         },
         dataLabels: {
             enabled: true,
             offsetX: -6,
             style: {
-            fontSize: '12px',
-            colors: ['#fff']
+                fontSize: '12px',
+                colors: ['#fff']
             }
         },
         stroke: {
@@ -350,26 +356,25 @@
 </script>
 
 <style>
-    .apexcharts-toolbar{
+    .apexcharts-toolbar {
         display: none;
     }
 </style>
 
 <script>
-    $(document).ready(function($)
-    {
+    $(document).ready(function($) {
         incrementAnimation();
         incrementAnimation2();
     });
 
-    function incrementAnimation(){
-        $('.count').each(function () {
+    function incrementAnimation() {
+        $('.count').each(function() {
             $(this).prop('counter', 0).animate({
                 counter: $(this).text()
             }, {
                 duration: 1000,
                 easing: 'easeOutExpo',
-                step: function (step) {
+                step: function(step) {
                     $(this).text('' + step.format());
                 }
             });
@@ -379,17 +384,20 @@
     Number.prototype.format = function(n) {
         // var r = new RegExp('\\d(?=(\\d{3})+' + (n > 0 ? '\\.' : '$') + ')', 'g');
         // return this.toFixed(Math.max(0, Math.floor(n))).replace(r, '$&,');
-        return this.toLocaleString('en-US', {minimumFractionDigits:2,maximumFractionDigits:2});
+        return this.toLocaleString('en-US', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
     };
 
-    function incrementAnimation2(){
-        $('.count2').each(function () {
+    function incrementAnimation2() {
+        $('.count2').each(function() {
             $(this).prop('counter', 0).animate({
                 counter: $(this).text()
             }, {
                 duration: 1000,
                 easing: 'easeOutExpo',
-                step: function (step) {
+                step: function(step) {
                     $(this).text('' + step.format2());
                 }
             });
@@ -399,83 +407,88 @@
     Number.prototype.format2 = function(n) {
         // var r = new RegExp('\\d(?=(\\d{3})+' + (n > 0 ? '\\.' : '$') + ')', 'g');
         // return this.toFixed(Math.max(0, Math.floor(n))).replace(r, '$&,');
-        return this.toLocaleString('en-US', {minimumFractionDigits:0,maximumFractionDigits:0});
+        return this.toLocaleString('en-US', {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        });
     };
-
-
 </script>
 
 <style>
     @keyframes growProgressBar {
-    0%, 33% { --pgPercentage: 0; }
-    100% { --pgPercentage: var(--value); }
+
+        0%,
+        33% {
+            --pgPercentage: 0;
+        }
+
+        100% {
+            --pgPercentage: var(--value);
+        }
     }
 
     @property --pgPercentage {
-    syntax: '<number>';
-    inherits: false;
-    initial-value: 0;
+        syntax: '<number>';
+        inherits: false;
+        initial-value: 0;
     }
 
     div[role="progressbar"] {
-    --size: 12rem;
-    --fg: #369;
-    --bg: #def;
-    --pgPercentage: var(--value);
-    animation: growProgressBar 1s 1 forwards;
-    width: var(--size);
-    height: var(--size);
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background:
-        radial-gradient(closest-side, white 80%, transparent 0 99.9%, white 0),
-        conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0)
-        ;
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: calc(var(--size) / 5);
-    color: var(--fg);
+        --size: 12rem;
+        --fg: #369;
+        --bg: #def;
+        --pgPercentage: var(--value);
+        animation: growProgressBar 1s 1 forwards;
+        width: var(--size);
+        height: var(--size);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background:
+            radial-gradient(closest-side, white 80%, transparent 0 99.9%, white 0),
+            conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0);
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: calc(var(--size) / 5);
+        color: var(--fg);
     }
 
     div[role="progressbar"]::before {
-    counter-reset: percentage var(--value);
-    content: counter(percentage) '%';
+        counter-reset: percentage var(--value);
+        content: counter(percentage) '%';
     }
 
     /* demo */
     body {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
     }
 
     div[role="progressbar2"] {
-    --size: 50px;
-    --fg: #369;
-    --bg: #def;
-    --pgPercentage: var(--value);
-    animation: growProgressBar 1s 1 forwards;
-    width: var(--size);
-    height: var(--size);
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background:
-        radial-gradient(closest-side, white 80%, transparent 0 99.9%, white 0),
-        conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0)
-        ;
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: calc(var(--size) / 5);
-    color: var(--fg);
+        --size: 50px;
+        --fg: #369;
+        --bg: #def;
+        --pgPercentage: var(--value);
+        animation: growProgressBar 1s 1 forwards;
+        width: var(--size);
+        height: var(--size);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background:
+            radial-gradient(closest-side, white 80%, transparent 0 99.9%, white 0),
+            conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0);
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: calc(var(--size) / 5);
+        color: var(--fg);
     }
 
     div[role="progressbar2"]::before {
-    counter-reset: percentage var(--value);
-    content: counter(percentage) '%';
+        counter-reset: percentage var(--value);
+        content: counter(percentage) '%';
     }
-
 </style>
 
 @endsection
