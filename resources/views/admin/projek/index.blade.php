@@ -223,12 +223,14 @@
                                     <div class="text-capitalize">{{ $projek->skop_projek }}</div>
                                 </td>
                                 <td>
-                                    @if ( $projek->status === 'aktif' )
-                                    <span class="badge rounded-pill bg-primary">Aktif</span>
-                                    @elseif ( $projek->status === 'selesai' )
-                                    <span class="badge rounded-pill bg-success">Selesai</span>
-                                    @elseif ( $projek->status === 'tidak aktif' )
-                                    <span class="badge rounded-pill bg-secondary">Tidak Aktif</span>
+                                    @if ( $projek->status === 'ikut jadual' )
+                                    <span class="badge rounded-pill bg-primary">Ikut Jadual</span>
+                                    @elseif ( $projek->status === 'dalam perlaksanaan' )
+                                    <span class="badge rounded-pill bg-success">Dalam Perlaksanaan</span>
+                                    @elseif ( $projek->status === 'projek lewat' )
+                                    <span class="badge rounded-pill bg-danger">Projek Lewat</span>
+                                    @elseif ( $projek->status === 'projek sakit' )
+                                    <span class="badge rounded-pill bg-secondary">Projek Sakit</span>
                                     @else
                                     <span class="badge rounded-pill bg-secondary">Undefined</span>
                                     @endif
