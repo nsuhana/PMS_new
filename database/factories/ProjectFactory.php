@@ -25,7 +25,7 @@ class ProjectFactory extends Factory
             'tempoh_mula_kontrak' => now(),
             'tempoh_tamat_kontrak' => now(),
             'skop_projek' => $this->faker->randomElement(['pembekalan', 'perkhidmatan']),
-            'status' => $this->faker->randomElement(['aktif', 'tidak aktif', 'selesai']),
+            'status' => $this->faker->randomElement(['ikut jadual', 'dalam perlaksanaan','projek lewat', 'projek sakit']),
             'publish' => $this->faker->randomElement(['0', '1']),
             'description' => $this->faker->paragraph(),
         ];

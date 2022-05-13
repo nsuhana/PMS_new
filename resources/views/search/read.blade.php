@@ -56,13 +56,15 @@
                             {{date('d-m-Y', strtotime($result->tempoh_tamat_kontrak));}}
                         </div>
                     </div>
-                    @if ( $result->status === 'aktif' )
-                    <span class="badge rounded-pill" style="margin-top: auto; background-color: #2684C4;">Aktif</span>
-                    @elseif ( $result->status === 'selesai' )
+                    @if ( $result->status === 'ikut jadual' )
+                    <span class="badge rounded-pill" style="margin-top: auto; background-color: #2684C4;">Ikut Jadual</span>
+                    @elseif ( $result->status === 'dalam perlaksanaan' )
                     <span class="badge rounded-pill"
-                        style="margin-top: auto; color: black; background-color: #9BCC5C">Selesai</span>
-                    @elseif ( $result->status === 'tidak aktif' )
-                    <span class="badge rounded-pill bg-secondary" style="margin-top: auto;">Tidak Aktif</span>
+                        style="margin-top: auto; color: black; background-color: #9BCC5C">Dalam Perlaksanaan</span>
+                    @elseif ( $result->status === 'projek lewat' )
+                    <span class="badge rounded-pill bg-secondary" style="margin-top: auto;">Projek Lewat</span>
+                    @elseif ( $result->status === 'projek sakit' )
+                    <span class="badge rounded-pill bg-secondary" style="margin-top: auto;">Projek Sakit</span>
                     @else
                     <span class="badge rounded-pill bg-secondary" style="margin-top: auto;">Undefined</span>
                     @endif

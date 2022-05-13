@@ -12,7 +12,7 @@ class SetLocale
     //     return $next($request);
     // }
 
-    protected $supported_languages = ['en', 'my'];
+    protected $supported_languages = ['my', 'en'];
 
     public function handle($request, Closure $next)
     {
