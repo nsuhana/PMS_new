@@ -52,23 +52,30 @@
                                     </div>
                                     <div class="form-label m-0">
                                         <input class="form-check-input" type="radio" name="filter_projek_status"
-                                            id="filter_projek_status2" value="aktif" @if($filter_projek_status==='aktif' ) checked @endif>
+                                            id="filter_projek_status2" value="ikut jadual" @if($filter_projek_status==='ikut jadual' ) checked @endif>
                                         <label class="form-check-label mx-2" for="filter_projek_status2">
-                                            Aktif
+                                            Ikut Jadual
                                         </label>
                                     </div>
                                     <div class="form-label m-0">
                                         <input class="form-check-input" type="radio" name="filter_projek_status"
-                                            id="filter_projek_status4" value="selesai" @if($filter_projek_status==='selesai' ) checked @endif>
+                                            id="filter_projek_status4" value="dalam perlaksanaan" @if($filter_projek_status==='dalam perlaksanaan' ) checked @endif>
                                         <label class="form-check-label mx-2" for="filter_projek_status4">
-                                            Selesai
+                                            Dalam Perlaksanaan
                                         </label>
                                     </div>
                                     <div class="form-label m-0">
                                         <input class="form-check-input" type="radio" name="filter_projek_status"
-                                            id="filter_projek_status3" value="tidak aktif" @if($filter_projek_status==='tidak aktif' ) checked @endif>
+                                            id="filter_projek_status3" value="projek lewat" @if($filter_projek_status==='projek lewat' ) checked @endif>
                                         <label class="form-check-label mx-2" for="filter_projek_status3">
-                                            Tidak Aktif
+                                            Projek Lewat
+                                        </label>
+                                    </div>
+                                    <div class="form-label m-0">
+                                        <input class="form-check-input" type="radio" name="filter_projek_status"
+                                            id="filter_projek_status3" value="projek sakit" @if($filter_projek_status==='projek sakit' ) checked @endif>
+                                        <label class="form-check-label mx-2" for="filter_projek_status3">
+                                            Projek Sakit
                                         </label>
                                     </div>
                                 </div>

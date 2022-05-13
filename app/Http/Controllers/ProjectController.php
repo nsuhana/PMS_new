@@ -32,7 +32,8 @@ class ProjectController extends Controller
 
         if ($this->isAdminRequest()) {
             $request->validate([
-                'filter_projek_status' => ['nullable', Rule::in(['aktif', 'tidak aktif', 'selesai'])],
+                // 'filter_projek_status' => ['nullable', Rule::in(['aktif', 'tidak aktif', 'selesai'])],
+                'filter_projek_status' => ['nullable', Rule::in(['ikut jadual', 'dalam perlaksanaan', 'projek sakit', 'projek lewat'])],
                 'filter_projek_skop' => ['nullable', Rule::in(['pembekalan', 'perkhidmatan'])],
                 'filter_tahun' => ['nullable'],
                 'filter_publish' => ['nullable', Rule::in(['0', '1'])],
@@ -98,7 +99,7 @@ class ProjectController extends Controller
         else {
             $request->validate([
                 'filter_ownership' =>  ['nullable', Rule::in(['owner', 'editor'])],
-                'filter_projek_status' => ['nullable', Rule::in(['aktif', 'tidak aktif', 'selesai'])],
+                'filter_projek_status' => ['nullable', Rule::in(['ikut jadual', 'dalam perlaksanaan', 'projek sakit', 'projek lewat'])],
                 'filter_projek_skop' => ['nullable', Rule::in(['pembekalan', 'perkhidmatan'])],
             ]);
 
