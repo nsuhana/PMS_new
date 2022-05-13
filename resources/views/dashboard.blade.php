@@ -30,18 +30,22 @@
                     "theme": "fusion"
                 },
                 "data": [{
-                        "label": "{{__('Aktif')}}",
-                        "value": "{{$pembekalan_aktif}}"
-                    },
-                    {
-                        "label": "{{__('Tidak Aktif')}}",
-                        "value": "{{$pembekalan_tidak_aktif}}"
-                    },
-                    {
-                        "label": "{{__('Selesai')}}",
-                        "value": "{{$pembekalan_selesai}}"
-                    }
-                ]
+                                "label": "{{__('Ikut Jadual')}}",
+                                "value": "{{$pembekalan_ikut_jadual}}"
+                            },
+                            {
+                                "label": "{{__('Dalam Perlaksanaan')}}",
+                                "value": "{{$pembekalan_dalam_perlaksanaan}}"
+                            },
+                            {
+                                "label": "{{__('Projek Lewat')}}",
+                                "value": "{{$pembekalan_projek_lewat}}"
+                            },
+                            {
+                                "label": "{{__('Projek Sakit')}}",
+                                "value": "{{$pembekalan_projek_sakit}}"
+                            }
+                        ]
             }
         }).render();
     });
@@ -245,16 +249,20 @@
                             "theme": "fusion"
                         },
                         "data": [{
-                                "label": "{{__('Aktif')}}",
-                                "value": "{{$pembekalan_aktif}}"
+                                "label": "{{__('Ikut Jadual')}}",
+                                "value": "{{$pembekalan_ikut_jadual}}"
                             },
                             {
-                                "label": "{{__('Tidak Aktif')}}",
-                                "value": "{{$pembekalan_tidak_aktif}}"
+                                "label": "{{__('Dalam Perlaksanaan')}}",
+                                "value": "{{$pembekalan_dalam_perlaksanaan}}"
                             },
                             {
-                                "label": "{{__('Selesai')}}",
-                                "value": "{{$pembekalan_selesai}}"
+                                "label": "{{__('Projek Lewat')}}",
+                                "value": "{{$pembekalan_projek_lewat}}"
+                            },
+                            {
+                                "label": "{{__('Projek Sakit')}}",
+                                "value": "{{$pembekalan_projek_sakit}}"
                             }
                         ]
                     }
@@ -284,16 +292,20 @@
                             "theme": "fusion"
                         },
                         "data": [{
-                                "label": "{{__('Aktif')}}",
-                                "value": "{{$perkhidmatan_aktif}}"
+                                "label": "{{__('Ikut Jadual')}}",
+                                "value": "{{$perkhidmatan_ikut_jadual}}"
                             },
                             {
-                                "label": "{{__('Tidak Aktif')}}",
-                                "value": "{{$perkhidmatan_tidak_aktif}}"
+                                "label": "{{__('Dalam Perlaksanaan')}}",
+                                "value": "{{$perkhidmatan_dalam_perlaksanaan}}"
                             },
                             {
-                                "label": "{{__('Selesai')}}",
-                                "value": "{{$perkhidmatan_selesai}}"
+                                "label": "{{__('Projek Lewat')}}",
+                                "value": "{{$perkhidmatan_projek_lewat}}"
+                            },
+                            {
+                                "label": "{{__('Projek Sakit')}}",
+                                "value": "{{$perkhidmatan_projek_sakit}}"
                             }
                         ]
                     }

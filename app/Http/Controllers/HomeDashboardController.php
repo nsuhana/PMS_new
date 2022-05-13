@@ -47,14 +47,16 @@ class HomeDashboardController extends Controller
             // ============== 3rd row ============
             // @pembekalan
             $jumlah_pembekalan = Models\project::where('skop_projek', 'pembekalan')->count();
-            $pembekalan_aktif = Models\project::where('skop_projek', 'pembekalan')->where('status', 'aktif')->count();
-            $pembekalan_tidak_aktif = Models\project::where('skop_projek', 'pembekalan')->where('status', 'tidak aktif')->count();
-            $pembekalan_selesai = Models\project::where('skop_projek', 'pembekalan')->where('status', 'selesai')->count();
+            $pembekalan_ikut_jadual = Models\project::where('skop_projek', 'pembekalan')->where('status', 'ikut jadual')->count();
+            $pembekalan_dalam_perlaksanaan = Models\project::where('skop_projek', 'pembekalan')->where('status', 'dalam perlaksanaan')->count();
+            $pembekalan_projek_lewat = Models\project::where('skop_projek', 'pembekalan')->where('status', 'projek lewat')->count();
+            $pembekalan_projek_sakit = Models\project::where('skop_projek', 'pembekalan')->where('status', 'projek sakit')->count();;
             //@perkhidmatan
             $jumlah_perkhidmatan = Models\project::where('skop_projek', 'perkhidmatan')->count();
-            $perkhidmatan_aktif = Models\project::where('skop_projek', 'perkhidmatan')->where('status', 'aktif')->count();
-            $perkhidmatan_tidak_aktif = Models\project::where('skop_projek', 'perkhidmatan')->where('status', 'tidak aktif')->count();
-            $perkhidmatan_selesai = Models\project::where('skop_projek', 'perkhidmatan')->where('status', 'selesai')->count();
+            $perkhidmatan_ikut_jadual = Models\project::where('skop_projek', 'perkhidmatan')->where('status', 'ikut jadual')->count();
+            $perkhidmatan_dalam_perlaksanaan = Models\project::where('skop_projek', 'perkhidmatan')->where('status', 'dalam perlaksanaan')->count();
+            $perkhidmatan_projek_lewat = Models\project::where('skop_projek', 'perkhidmatan')->where('status', 'projek lewat')->count();
+            $perkhidmatan_projek_sakit = Models\project::where('skop_projek', 'perkhidmatan')->where('status', 'projek sakit')->count();
             // ============== 4th row ============
             $random_projek = Models\project::join('user_projects','user_projects.project_id', '=', 'projects.id')
             ->where('user_projects.user_id', Auth::user()->id)->inRandomOrder()->where('publish', '1')->first();
@@ -117,14 +119,16 @@ class HomeDashboardController extends Controller
             // ============== 3rd row ============
             // @pembekalan
             $jumlah_pembekalan = Models\project::where('skop_projek', 'pembekalan')->count();
-            $pembekalan_aktif = Models\project::where('skop_projek', 'pembekalan')->where('status', 'aktif')->count();
-            $pembekalan_tidak_aktif = Models\project::where('skop_projek', 'pembekalan')->where('status', 'tidak aktif')->count();
-            $pembekalan_selesai = Models\project::where('skop_projek', 'pembekalan')->where('status', 'selesai')->count();
+            $pembekalan_ikut_jadual = Models\project::where('skop_projek', 'pembekalan')->where('status', 'ikut jadual')->count();
+            $pembekalan_dalam_perlaksanaan = Models\project::where('skop_projek', 'pembekalan')->where('status', 'dalam perlaksanaan')->count();
+            $pembekalan_projek_lewat = Models\project::where('skop_projek', 'pembekalan')->where('status', 'projek lewat')->count();
+            $pembekalan_projek_sakit = Models\project::where('skop_projek', 'pembekalan')->where('status', 'projek sakit')->count();
             //@perkhidmatan
             $jumlah_perkhidmatan = Models\project::where('skop_projek', 'perkhidmatan')->count();
-            $perkhidmatan_aktif = Models\project::where('skop_projek', 'perkhidmatan')->where('status', 'aktif')->count();
-            $perkhidmatan_tidak_aktif = Models\project::where('skop_projek', 'perkhidmatan')->where('status', 'tidak aktif')->count();
-            $perkhidmatan_selesai = Models\project::where('skop_projek', 'perkhidmatan')->where('status', 'selesai')->count();
+            $perkhidmatan_ikut_jadual = Models\project::where('skop_projek', 'perkhidmatan')->where('status', 'ikut jadual')->count();
+            $perkhidmatan_dalam_perlaksanaan = Models\project::where('skop_projek', 'perkhidmatan')->where('status', 'dalam perlaksanaan')->count();
+            $perkhidmatan_projek_lewat = Models\project::where('skop_projek', 'perkhidmatan')->where('status', 'projek lewat')->count();
+            $perkhidmatan_projek_sakit = Models\project::where('skop_projek', 'perkhidmatan')->where('status', 'projek sakit')->count();
             // ============== 4th row ============
             $random_projek = Models\project::inRandomOrder()->where('publish', '1')->first();
             // ============== 5th row ============
@@ -185,14 +189,17 @@ class HomeDashboardController extends Controller
             // 3rd row
             // @pembekalan
             'jumlah_pembekalan' => $jumlah_pembekalan,
-            'pembekalan_aktif' => $pembekalan_aktif,
-            'pembekalan_tidak_aktif' => $pembekalan_tidak_aktif,
-            'pembekalan_selesai' => $pembekalan_selesai,
+            'pembekalan_ikut_jadual' => $pembekalan_ikut_jadual,
+            'pembekalan_dalam_perlaksanaan' => $pembekalan_dalam_perlaksanaan,
+            'pembekalan_projek_lewat' => $pembekalan_projek_lewat,
+            'pembekalan_projek_sakit' => $pembekalan_projek_sakit,
             // @perkhidmatan
             'jumlah_perkhidmatan' => $jumlah_perkhidmatan,
-            'perkhidmatan_aktif' => $perkhidmatan_aktif,
-            'perkhidmatan_tidak_aktif' => $perkhidmatan_tidak_aktif,
-            'perkhidmatan_selesai' => $perkhidmatan_selesai,
+
+            'perkhidmatan_ikut_jadual' => $perkhidmatan_ikut_jadual,
+            'perkhidmatan_dalam_perlaksanaan' => $perkhidmatan_dalam_perlaksanaan,
+            'perkhidmatan_projek_lewat' => $perkhidmatan_projek_lewat,
+            'perkhidmatan_projek_sakit' => $perkhidmatan_projek_sakit,
             // 4th row
             'random_projek' => $random_projek,
             // 5th row
