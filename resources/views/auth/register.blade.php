@@ -4,7 +4,7 @@
 
 <div style="height: 500px;">
     <div class="d-flex justify-content-center align-items-center w-100 h-100">
-        <div class="card">
+        <div class="card shadow">
             <div class="d-flex" style="height: auto;">
                 <div class="card-body m-3">
                     <x-auth-validation-errors class="mb-4 text-danger" :errors="$errors" />
@@ -14,11 +14,11 @@
                             <div class="d-flex flex-column">
                                 <div class="form-group mt-2">
                                     <label for="name" class="form-label"><small>Username</small></label>
-                                    <input type="text" class="form-control" name="name" id="name" required autofocus>
+                                    <input type="text" class="form-control" name="name" id="name" value="{{old('name')}}" required autofocus>
                                 </div>
                                 <div class="form-group mt-2">
                                     <label for="email" class="form-label"><small>Email</small></label>
-                                    <input type="email" class="form-control" name="email" id="email" required autofocus>
+                                    <input type="email" class="form-control" name="email" id="email" value="{{old('email')}}" required autofocus>
                                 </div>
                                 <div class="form-group mt-2">
                                     <label for="password" class="form-label"><small>{{__('Password')}}</small></label>
@@ -30,11 +30,11 @@
                                 </div>
                                 <div class="d-flex m-2 flex-column flex-md-row justify-content-between align-items-center">
                                     {{-- <div class="flex items-center justify-end mt-4"> --}}
-                                        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                                        <a class="underline text-sm text-gray-600 hover:text-gray-900 my-text-primary" href="{{ route('login') }}">
                                             {{ __('Already registered?') }}
                                         </a>
                         
-                                        <button class="btn btn-primary mx-md-3 mx-0 my-2 my-md-0">
+                                        <button class="btn my-btn-primary mx-md-3 mx-0 my-2 my-md-0">
                                             {{__('Buat Akaun')}}
                                         </button>
                                     {{-- </div> --}}
@@ -43,7 +43,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="card-body bg-primary d-none d-md-block" style="width: 200px;"></div>
+                <div class="card-body my-bg-primary d-none d-md-block" style="width: 200px;"></div>
             </div>
         </div>
     </div>

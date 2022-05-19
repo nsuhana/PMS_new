@@ -71,7 +71,10 @@ Route::get('my', function() {
 
 Route::get('/test', function () { return view('template'); });
 
+Route::get('/base', function () { return view('testbase'); });
+
 Route::get('/', [HomeDashboardController::class, 'index'])->name('dashboard');
+Route::get('/2', [HomeDashboardController::class, 'index2'])->name('dashboard');
 
 Route::get('/search/home', function () { return view('search.home'); })->name('search.home');
 

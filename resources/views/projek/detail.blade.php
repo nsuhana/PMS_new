@@ -86,7 +86,7 @@
 @endif
 
 <div class="shadow card mb-3">
-    <div class="container m-0 p-0"
+    <div class="m-0 p-0"
         style="background-image: url({{url('img/corner-2.png')}}); background-position: right top; background-repeat: no-repeat; background-size: 100% 100%;">
         @if (Route::has('login'))
         @auth

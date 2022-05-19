@@ -4,9 +4,9 @@
 
 <div style="height: 500px;">
     <div class="d-flex justify-content-center align-items-center w-100 h-100">
-        <div class="card">
+        <div class="card shadow">
             <div class="d-flex"  style="height: auto;">
-                <div class="card-body bg-primary d-none d-md-block" style="width: 200px;"></div>
+                <div class="card-body my-bg-primary d-none d-md-block" style="width: 200px;"></div>
                 <div class="card-body m-3">
                     <x-auth-validation-errors class="mb-4 text-danger" :errors="$errors" />
                     <div class="container">
@@ -15,7 +15,7 @@
                             <div class="d-flex flex-column">
                                 <div class="form-group mt-2">
                                     <label for="email" class="form-label"><small>{{__('Email')}}</small></label>
-                                    <input type="email" class="form-control" name="email" id="email" required autofocus>
+                                    <input type="email" class="form-control" name="email" id="email" value="{{old('email')}}" required autofocus>
                                 </div>
                                 <div class="form-group mt-2">
                                     <label for="password" class="form-label"><small>{{__('Password')}}</small></label>
@@ -30,12 +30,12 @@
                                 <div class="d-flex m-2 flex-column flex-md-row justify-content-between align-items-center">
                                     {{-- <div class="flex items-center justify-end mt-4"> --}}
                                         @if (Route::has('password.request'))
-                                        <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                                        <a class="underline text-sm text-gray-600 hover:text-gray-900 my-text-primary" href="{{ route('password.request') }}">
                                             {{ __('Forgot your password?') }}
                                         </a>
                                         @endif
                         
-                                        <button class="btn btn-primary mx-md-3 mx-0 my-2 my-md-0">
+                                        <button class="btn my-btn-primary mx-md-3 mx-0 my-2 my-md-0">
                                             {{__('Log Masuk')}}
                                         </button>
                                     {{-- </div> --}}
