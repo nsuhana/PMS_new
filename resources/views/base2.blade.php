@@ -151,7 +151,7 @@
             style="background-color: #262626; color: white;" style="box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);">
             <div style="width:100%">
                 <div class="d-flex align-items-center justify-content-center" style="width: 100%;">
-                    <h5 class="m-2">SISTEM PEMANTAUAN KONTRAK</h5>
+                    <h5 class="m-2">SISTEM PENGURUSAN KONTRAK JABATAN PENGANGKUTAN JALAN (JPJ)</h5>
                 </div>
             </div>
         </div>

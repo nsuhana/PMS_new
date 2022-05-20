@@ -79,10 +79,14 @@
                 </div>
             </div>
         @endforeach
+
+        {{-- {{ $results->appends($_GET)->links() }} --}}
         {{-- {{dd($results->hasPages()) }} --}}
         {{-- {{ $results->links() }} --}}
 
-        {{-- {{dd($results->url(1))}} --}}
+        {{-- {{dd($results->url(2))}} --}}
+
+        {{-- {{ dd($results->currentPage())}} --}}
 
         @if ($results->hasPages())
 
@@ -104,14 +108,14 @@
                 <!-- first/previous -->
                 @if ($results->currentPage() > 1)
                     <li class="page-item">
-                        <a class="page-link" onClick="pagination('{{ $results->url(1) }}')" aria-label="First">
+                        <a class="page-link" onClick="pagination('{{ $results->appends($_GET)->url(1) }}')" aria-label="First">
                             <span aria-hidden="true">«</span>
                         </a>
                     </li>
 
                     <li class="page-item">
                         <a class="page-link"
-                            onClick="pagination('{{ $results->url($results->currentPage() - 1) }}')"
+                            onClick="pagination('{{ $results->appends($_GET)->url($results->appends($_GET)->currentPage() - 1) }}')"
                             aria-label="Previous">
                             <span aria-hidden="true">‹</span>
                         </a>
@@ -120,28 +124,28 @@
 
                 <!-- links -->
                 @for ($i = $from; $i <= $to; $i++)
-                    <?php $isCurrentPage = $results->currentPage() == $i;
+                    <?php $isCurrentPage = $results->appends($_GET)->currentPage() == $i;
                     ?>
                     <li class="page-item" class="{{ $isCurrentPage ? 'active' : '' }}">
                         <a class="page-link"
-                            onClick="pagination('{{ !$isCurrentPage ? $results->url($i) : '#' }}')">
+                            onClick="pagination('{{ !$isCurrentPage ? $results->appends($_GET)->url($i) : '#' }}')">
                             {{ $i }}
                         </a>
                     </li>
                 @endfor
 
                 <!-- next/last -->
-                @if ($results->currentPage() < $results->lastPage())
+                @if ($results->appends($_GET)->currentPage() < $results->appends($_GET)->lastPage())
                     <li class="page-item">
                         <a class="page-link"
-                            onClick="pagination('{{ $results->url($results->currentPage() + 1) }}')"
+                            onClick="pagination('{{ $results->appends($_GET)->url($results->appends($_GET)->currentPage() + 1) }}')"
                             aria-label="Next">
                             <span aria-hidden="true">›</span>
                         </a>
                     </li>
 
                     <li class="page-item">
-                        <a class="page-link" onClick="pagination('{{ $results->url($results->lastpage()) }}')"
+                        <a class="page-link" onClick="pagination('{{ $results->appends($_GET)->url($results->appends($_GET)->lastpage()) }}')"
                             aria-label="Last">
                             <span aria-hidden="true">»</span>
                         </a>

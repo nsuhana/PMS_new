@@ -118,9 +118,10 @@
                     <select id="status" name="status" class="form-select ms-2"
                         style="padding-left: 9px; padding-right: 27px; background-position: right 0.75rem center !important; width: 100px;">
                         <option value="">Semua</option>
-                        <option value="aktif">Aktif</option>
-                        <option value="tidak aktif">Tidak Aktif</option>
-                        <option value="selesai">Selesai</option>
+                        <option value="ikut jadual">{{__('Ikut Jadual')}}</option>
+                        <option value="dalam perlaksanaan">{{__('Dalam Perlaksanaan')}}</option>
+                        <option value="projek lewat">{{__('Projek Lewat')}}</option>
+                        <option value="projek sakit">{{__('Projek Sakit')}}</option>
                     </select>
                     <div class="ms-2">Skop Projek: </div>
                     <select id="skop_projek" name="skop_projek" class="form-select ms-2"
