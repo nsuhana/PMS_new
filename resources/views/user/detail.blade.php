@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container m-4">
+<div class="m-4">
     <div class="row">
         <div class="d-flex bd-highlight align-items-center">
             <h1 class="w-100 bd-highlight" style="text-transform:uppercase;">{{ $user->name }}</h1>

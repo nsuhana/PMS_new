@@ -38,14 +38,23 @@
 
             <div class="row mb-3">
                 <div class="col-md-4 col-12">
-                    <label for="rujukan_projek" class="form-label">{{__('Rujukan Projek')}}</label>
+                    <label for="pengurus_projek" class="form-label">{{__('Pengurus Projek')}}</label>
+                </div>
+                <div class="col-md-8 col-12">
+                    <input type="text" id="pengurus_projek" name="pengurus_projek" class="form-control" value="{{ $project->pengurus_projek }}">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 col-12">
+                    <label for="rujukan_kontrak" class="form-label">{{__('Rujukan Kontrak')}}</label>
                     <i class="fa fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top"
                         title="Surat Setuju Terima format .pdf sahaja">
                     </i>
                 </div>
                 <div class="col-md-8 col-12">
-                    <input type="file" id="rujukan_projek" name="rujukan_projek" class="form-control" accept="application/pdf">
-                    <small class="mx-2">Current File: <a href="/documents/rujukan/{{ $project->rujukan_projek }}">{{ $project->rujukan_projek }}</a></small>
+                    <input type="file" id="rujukan_kontrak" name="rujukan_kontrak" class="form-control" accept="application/pdf">
+                    <small class="mx-2">Current File: <a href="/documents/rujukan/{{ $project->rujukan_kontrak }}">{{ $project->rujukan_kontrak }}</a></small>
                 </div>
             </div>
 
@@ -65,23 +74,23 @@
 
             <div class="row mb-3">
                 <div class="col-md-4 col-12">
-                    <label for="" class="form-label">{{__('Kos Projek')}}</label>
+                    <label for="" class="form-label">{{__('Kos Kontrak')}}</label>
                 </div>
                 <div class="col-md-8 col-12">
                     <div class="row mb-3">
                         <div class="col-md-4 col-12">
-                            <label for="kos_projek_sebelum_sst" class="form-label">{{__('Sebelum SST')}} (RM)</label>
+                            <label for="kos_kontrak_tidak_termasuk_caj_perkhidmatan" class="form-label">{{__('Tidak termasuk caj perkhidmatan')}} (RM)</label>
                         </div>
                         <div class="col-md-4 col-12">
-                            <input type="text" class="form-control" name="kos_projek_sebelum_sst" id="kos_projek_sebelum_sst" value="{{ $project->kos_projek_sebelum_sst }}" step=".01">
+                            <input type="text" class="form-control" name="kos_kontrak_tidak_termasuk_caj_perkhidmatan" id="kos_kontrak_tidak_termasuk_caj_perkhidmatan" value="{{ $project->kos_kontrak_tidak_termasuk_caj_perkhidmatan }}" step=".01">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 col-12">
-                            <label for="kos_projek_selepas_sst" class="form-label">{{__('Selepas SST')}} (RM)</label>
+                            <label for="kos_kontrak_termasuk_caj_perkhidmatan" class="form-label">{{__('Termasuk caj perkhidmatan')}} (RM)</label>
                         </div>
                         <div class="col-md-4 col-12">
-                            <input type="text" class="form-control" name="kos_projek_selepas_sst" id="kos_projek_selepas_sst" value="{{ $project->kos_projek_selepas_sst }}" step=".01">
+                            <input type="text" class="form-control" name="kos_kontrak_termasuk_caj_perkhidmatan" id="kos_kontrak_termasuk_caj_perkhidmatan" value="{{ $project->kos_kontrak_termasuk_caj_perkhidmatan }}" step=".01">
                         </div>
                     </div>
                 </div>
@@ -93,6 +102,15 @@
                 </div>
                 <div class="col-md-8 col-12">
                     <input type="text" class="form-control" name="bon_pelaksanaan_projek" id="bon_pelaksanaan_projek" value="{{ $project->bon_pelaksanaan_projek }}" step=".01">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 col-12">
+                    <label for="tempoh_sah_bon" class="form-label">{{__('Tempoh Sah Bon')}}</label>
+                </div>
+                <div class="col-md-8 col-12">
+                    <input type="date" class="form-control" name="tempoh_sah_bon" id="tempoh_sah_bon" value="{{ $project->tempoh_sah_bon }}">
                 </div>
             </div>
 

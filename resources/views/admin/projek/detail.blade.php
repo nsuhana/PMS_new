@@ -91,7 +91,7 @@
     }
 </style>
 
-<div class="container m-4">
+<div class="m-4">
     <div class="row">
         <nav>
             <ul class="breadcrumb">
@@ -199,7 +199,7 @@
                             <div class="tab-pane fade show active" id="nav-about" role="tabpanel"
                                 aria-labelledby="nav-about-tab">
                                 <div class="p-2">
-                                    <table class="table table-bordered">
+                                    <table class="table table-bordered table-striped">
                                         <tbody>
                                             <thead class="table-dark">
                                                 <tr>
@@ -226,11 +226,19 @@
                                             </tr>
                                             <tr>
                                                 <th>
-                                                    <div>Rujukan Projek</div>
+                                                    <div>Pengurus Projek</div>
                                                 </th>
                                                 <td>
-                                                    <div><a href="/documents/rujukan/{{ $project->rujukan_projek }}">{{
-                                                            $project->rujukan_projek }}</a></div>
+                                                    <div class="text-capitalize">{{ $project->pengurus_projek }}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div>Rujukan Kontrak</div>
+                                                </th>
+                                                <td>
+                                                    <div><a href="/documents/rujukan/{{ $project->rujukan_kontrak }}">{{
+                                                            $project->rujukan_kontrak }}</a></div>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -245,18 +253,18 @@
                                             </tr>
                                             <tr>
                                                 <th>
-                                                    <div>Kos Projek (Sebelum SST)</div>
+                                                    <div>Kos Kontrak (Sebelum termasuk caj perkhidmatan)</div>
                                                 </th>
                                                 <td>
-                                                    <div>RM {{ $project->kos_projek_sebelum_sst }}</div>
+                                                    <div>RM {{ $project->kos_kontrak_tidak_termasuk_caj_perkhidmatan }}</div>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th>
-                                                    <div>Kos Projek (Selepas SST)</div>
+                                                    <div>Kos Kontrak (Selepas termasuk caj perkhidmatan)</div>
                                                 </th>
                                                 <td>
-                                                    <div>RM {{ $project->kos_projek_selepas_sst }}</div>
+                                                    <div>RM {{ $project->kos_kontrak_termasuk_caj_perkhidmatan }}</div>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -265,6 +273,14 @@
                                                 </th>
                                                 <td>
                                                     <div>RM {{ $project->bon_pelaksanaan_projek }}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <div>Tempoh Sah Bon</div>
+                                                </th>
+                                                <td>
+                                                    <div>RM {{ $project->tempoh_sah_bon }}</div>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -369,7 +385,7 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-6">
-                        <iframe src="/documents/rujukan/{{ $project->rujukan_projek }}" frameborder="0"
+                        <iframe src="/documents/rujukan/{{ $project->rujukan_kontrak }}" frameborder="0"
                             style="width: 100%; height:500px; ">
                         </iframe>
                     </div>

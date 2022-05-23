@@ -152,11 +152,13 @@ class ProjectController extends Controller
         $request->validate([
             'tajuk_projek' => ['required', 'string', 'max:225', 'unique:projects'],
             'pemilik_projek' => ['required', 'string', 'max:225'],
-            'rujukan_projek' => ['required', 'mimes:pdf', ],
+            'pengurus_projek' => ['required', 'string', 'max:225'],
+            'rujukan_kontrak' => ['required', 'mimes:pdf', ],
             'nama_pembekal_dilantik' => ['required', 'string', 'max:225'],
-            'kos_projek_sebelum_sst' => ['required', 'numeric', 'between:0,999999999999.99'],
-            'kos_projek_selepas_sst' => ['required', 'numeric', 'between:0,999999999999.99'],
+            'kos_kontrak_tidak_termasuk_caj_perkhidmatan' => ['required', 'numeric', 'between:0,999999999999.99'],
+            'kos_kontrak_termasuk_caj_perkhidmatan' => ['required', 'numeric', 'between:0,999999999999.99'],
             'bon_pelaksanaan_projek' => ['required', 'numeric', 'between:0,999999999999.99'],
+            'tempoh_sah_bon' => ['required', 'string'],
             'tempoh_mula_kontrak' => ['required', 'string'],
             'tempoh_tamat_kontrak' => ['required', 'string'],
             'skop_projek' => ['required', Rule::in(['pembekalan', 'perkhidmatan'])],
@@ -181,11 +183,11 @@ class ProjectController extends Controller
             }
         }
 
-        if($request->rujukan_projek) {
+        if($request->rujukan_kontrak) {
 
-            $newRujukanName = time() . '-' . $request->tajuk_projek . '.' . $request->rujukan_projek->extension();
+            $newRujukanName = time() . '-' . $request->tajuk_projek . '.' . $request->rujukan_kontrak->extension();
 
-            $request->rujukan_projek->move(public_path('documents/rujukan'), $newRujukanName);
+            $request->rujukan_kontrak->move(public_path('documents/rujukan'), $newRujukanName);
     
         }
 
@@ -193,10 +195,12 @@ class ProjectController extends Controller
             'vendor_id' => $id_pembekal_dilantik,
             'tajuk_projek' => $request->tajuk_projek,
             'pemilik_projek' => $request->pemilik_projek,
-            'rujukan_projek'=> $newRujukanName,
-            'kos_projek_sebelum_sst' => $request->kos_projek_sebelum_sst,
-            'kos_projek_selepas_sst' => $request->kos_projek_selepas_sst,
+            'pengurus_projek' => $request->pengurus_projek,
+            'rujukan_kontrak'=> $newRujukanName,
+            'kos_kontrak_tidak_termasuk_caj_perkhidmatan' => $request->kos_kontrak_tidak_termasuk_caj_perkhidmatan,
+            'kos_kontrak_termasuk_caj_perkhidmatan' => $request->kos_kontrak_termasuk_caj_perkhidmatan,
             'bon_pelaksanaan_projek' => $request->bon_pelaksanaan_projek,
+            'tempoh_sah_bon' => $request->tempoh_sah_bon,
             'tempoh_mula_kontrak' => $request->tempoh_mula_kontrak,
             'tempoh_tamat_kontrak' => $request->tempoh_tamat_kontrak,
             'skop_projek' => $request->skop_projek,
@@ -341,11 +345,13 @@ class ProjectController extends Controller
         $request->validate([
             'tajuk_projek' => ($request->tajuk_projek == $projek->tajuk_projek) ? ['required', 'string', 'max:225'] : ['required', 'string', 'max:225','unique:projects'],
             'pemilik_projek' => ['required', 'string', 'max:225'],
-            'rujukan_projek' => ['nullable', 'mimes:pdf', ],
+            'pengurus_projek' => ['required', 'string', 'max:225'],
+            'rujukan_kontrak' => ['nullable', 'mimes:pdf', ],
             'nama_pembekal_dilantik' => ['required', 'string', 'max:225'],
-            'kos_projek_sebelum_sst' => ['required', 'numeric', 'between:0,999999999999.99'],
-            'kos_projek_selepas_sst' => ['required', 'numeric', 'between:0,999999999999.99'],
+            'kos_kontrak_tidak_termasuk_caj_perkhidmatan' => ['required', 'numeric', 'between:0,999999999999.99'],
+            'kos_kontrak_termasuk_caj_perkhidmatan' => ['required', 'numeric', 'between:0,999999999999.99'],
             'bon_pelaksanaan_projek' => ['required', 'numeric', 'between:0,999999999999.99'],
+            'tempoh_sah_bon' => ['required', 'string'],
             'tempoh_mula_kontrak' => ['required', 'string'],
             'tempoh_tamat_kontrak' => ['required', 'string'],
             'skop_projek' => ['required', Rule::in(['pembekalan', 'perkhidmatan'])],
@@ -369,19 +375,21 @@ class ProjectController extends Controller
             }
         }
 
-        if ($request->rujukan_projek) {
-            $newRujukanName = time() . '-' . $request->tajuk_projek . '.' . $request->rujukan_projek->extension();
+        if ($request->rujukan_kontrak) {
+            $newRujukanName = time() . '-' . $request->tajuk_projek . '.' . $request->rujukan_kontrak->extension();
 
-            $request->rujukan_projek->move(public_path('documents/rujukan'), $newRujukanName);
+            $request->rujukan_kontrak->move(public_path('documents/rujukan'), $newRujukanName);
         }
 
         $projek->tajuk_projek           = $request->tajuk_projek;
         $projek->vendor_id              = $id_pembekal_dilantik;
         $projek->pemilik_projek         = $request->pemilik_projek;
-        $projek->rujukan_projek         = ($request->rujukan_projek)? $newRujukanName : $projek->rujukan_projek;
-        $projek->kos_projek_sebelum_sst = $request->kos_projek_sebelum_sst;
-        $projek->kos_projek_selepas_sst = $request->kos_projek_selepas_sst;
+        $projek->pengurus_projek        = $request->pengurus_projek;
+        $projek->rujukan_kontrak        = ($request->rujukan_kontrak)? $newRujukanName : $projek->rujukan_kontrak;
+        $projek->kos_kontrak_tidak_termasuk_caj_perkhidmatan = $request->kos_kontrak_tidak_termasuk_caj_perkhidmatan;
+        $projek->kos_kontrak_termasuk_caj_perkhidmatan = $request->kos_kontrak_termasuk_caj_perkhidmatan;
         $projek->bon_pelaksanaan_projek = $request->bon_pelaksanaan_projek;
+        $projek->tempoh_sah_bon         = $request->tempoh_sah_bon;
         $projek->tempoh_mula_kontrak    = $request->tempoh_mula_kontrak;
         $projek->tempoh_tamat_kontrak   = $request->tempoh_tamat_kontrak;
         $projek->skop_projek            = $request->skop_projek;

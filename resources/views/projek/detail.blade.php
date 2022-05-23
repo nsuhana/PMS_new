@@ -192,18 +192,27 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-4">
+                        <p class="">{{__('Pengurus Projek')}}</label>
+                    </div>
+                    <div class="col-8">
+                        <p class="text-capitalize">: {{ $project->pengurus_projek }}</p>
+                    </div>
+                </div>
+
                 @if (Route::has('login'))
                 @auth
                 @if ($project->user_project->whereIn('user_id', Auth::user()->id)->isNotEmpty() || Auth::user()->isAdministrator())
                 <div class="row">
                     <div class="col-4">
-                        <p class="">{{__('Rujukan Projek')}}</label>
+                        <p class="">{{__('Rujukan Kontrak')}}</label>
                             <i class="fa fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top"
                                 title="Surat Setuju Terima format .pdf sahaja">
                             </i>
                     </div>
                     <div class="col-8">
-                        <p class="text-capitalize">: <a href="/documents/rujukan/{{ $project->rujukan_projek }}"
+                        <p class="text-capitalize">: <a href="/documents/rujukan/{{ $project->rujukan_kontrak }}"
                                 class="text-decoration-none">document.pdf</a></p>
                     </div>
                 </div>
@@ -223,23 +232,23 @@
 
                 <div class="row">
                     <div class="col-4">
-                        <p class="">{{__('Kos Projek')}}</label>
+                        <p class="">{{__('Kos Kontrak')}}</label>
                     </div>
                     <div class="col-8">
                         <div class="row">
                             <div class="col-4">
-                                <p class="mx-1">{{__('Sebelum SST')}}</label>
+                                <p class="mx-1">{{__('Sebelum termasuk caj perkhidmatan')}}</label>
                             </div>
                             <div class="col-4">
-                                <p>: RM {{ $project->kos_projek_sebelum_sst }}</p>
+                                <p>: RM {{ $project->kos_kontrak_tidak_termasuk_caj_perkhidmatan }}</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-4">
-                                <p class="mx-1">{{__('Selepas SST')}}</label>
+                                <p class="mx-1">{{__('Selepas termasuk caj perkhidmatan')}}</label>
                             </div>
                             <div class="col-4">
-                                <p>: RM {{ $project->kos_projek_selepas_sst }}</p>
+                                <p>: RM {{ $project->kos_kontrak_termasuk_caj_perkhidmatan }}</p>
                             </div>
                         </div>
                     </div>
@@ -251,6 +260,15 @@
                     </div>
                     <div class="col-8">
                         <p>: RM {{ $project->bon_pelaksanaan_projek }}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4">
+                        <p class="">{{__('Tempoh Sah Bon')}}</label>
+                    </div>
+                    <div class="col-8">
+                        <p>: {{date('d-m-Y', strtotime($project->tempoh_sah_bon));}}</p>
                     </div>
                 </div>
 

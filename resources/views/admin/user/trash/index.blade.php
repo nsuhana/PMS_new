@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container m-4">
+<div class="m-4">
     <div class="row">
         <nav>
             <ul class="breadcrumb">
