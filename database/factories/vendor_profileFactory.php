@@ -14,7 +14,12 @@ class vendor_profileFactory extends Factory
     public function definition()
     {
         return [
-            'telefon' => $this->faker->phoneNumber, 
+            'no_pendaftaran_syarikat' => $this->faker->phoneNumber,
+            'maklumat_bank' => $this->faker->randomElement(['Maybank', 'CIMB', 'BSN', 'Bank Islam']),
+            'no_akaun_kewangan' => $this->faker->phoneNumber,
+            'kelas' => $this->faker->randomElement(['A', 'B', 'C', 'D']),
+            'bidang'  => $this->faker->paragraph(),
+            'telefon' => $this->faker->phoneNumber,
             'faks' => $this->faker->phoneNumber,
             'alamat' => $this->faker->address,
             'website' => $this->faker->url,

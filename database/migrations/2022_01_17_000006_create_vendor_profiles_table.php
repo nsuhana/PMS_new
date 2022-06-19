@@ -17,6 +17,11 @@ class CreateVendorProfilesTable extends Migration
             $table->id();
             $table->foreignId('vendor_id')->references('id')->on('vendors')->onDelete('cascade');
             $table->string('vendor_avatar')->nullable();
+            $table->string('no_pendaftaran_syarikat')->nullable();
+            $table->string('maklumat_bank')->nullable();
+            $table->string('no_akaun_kewangan')->nullable();
+            $table->string('kelas')->nullable();
+            $table->longText('bidang')->nullable();
             $table->string('telefon')->nullable();
             $table->string('faks')->nullable();
             $table->string('alamat')->nullable();

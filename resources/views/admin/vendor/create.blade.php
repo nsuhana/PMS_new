@@ -127,10 +127,33 @@
                         <div class="col-8"><input class="form-control" type="text" name="nama_pembekal"></div>
                     </div>
                     <div class="row mb-3">
+                        <div class="col-4"><label class="form-label" for="no_pendaftaran_syarikat">No Pendaftaran Syarikat</label></div>
+                        <div class="col-8"><input class="form-control" type="text" name="no_pendaftaran_syarikat"></div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-4"><label class="form-label" for="kelas">Kelas</label></div>
+                        <div class="col-8"><input class="form-control" type="text" name="kelas"></div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-4"><label class="form-label" for="bidang">Bidang</label></div>
+                        <div class="col-8"><input class="form-control" type="text" name="bidang"></div>
+                    </div>
+                    <div class="row mb-3">
                         <div class="col-4"><label class="form-label" for="description">Description</label></div>
                         <div class="col-8"><textarea class="form-control" name="description" cols="30"
                                 rows="15" id="mytextarea"></textarea>
                             </div>
+                    </div>
+                    <div class="row mb-3">
+                        <h5 class="fw-bold">Bank Information</h5>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-4"><label class="form-label" for="maklumat_bank">Nama Bank</label></div>
+                        <div class="col-8"><input class="form-control" type="text" name="maklumat_bank"></div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-4"><label class="form-label" for="no_akaun_kewangan">No Akaun</label></div>
+                        <div class="col-8"><input class="form-control" type="text" name="no_akaun_kewangan"></div>
                     </div>
                     <div class="row mb-3">
                         <h5 class="fw-bold">Contact Information</h5>

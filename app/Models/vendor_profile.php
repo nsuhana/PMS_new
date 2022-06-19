@@ -14,6 +14,11 @@ class vendor_profile extends Model
     protected $fillable = [
         'vendor_id',
         'vendor_avatar',
+        'no_pendaftaran_syarikat',  
+        'maklumat_bank',    
+        'no_akaun_kewangan',    
+        'kelas',    
+        'bidang',   
         'telefon',
         'faks',
         'alamat',
@@ -24,5 +29,4 @@ class vendor_profile extends Model
     {
         return $this->belongsTo(vendor::class);
     }
-
 }

@@ -96,7 +96,13 @@ class VendorController extends Controller
     {
         $request->validate([
             'nama_pembekal' => ['required', 'string', 'max:255', 'unique:vendors,nama_pembekal_dilantik'],
+            'description' => ['nullable', 'string'],
             'image' => ['nullable', 'mimes:jpg,png,jpeg', 'max:5048'],
+            'no_pendaftaran_syarikat' => ['nullable','string', 'max:255'],  
+            'maklumat_bank' => ['nullable','string', 'max:255'],
+            'no_akaun_kewangan' => ['nullable','string', 'max:255'],
+            'kelas' => ['nullable', Rule::in(['A', 'B', 'C', 'D'])],
+            'bidang' => ['nullable','string', 'max:255'],
             'no_telefon' => ['nullable', 'numeric'],
             'faks' => ['nullable','numeric'],
             'alamat' => ['nullable','string', 'max:255'],
@@ -124,6 +130,11 @@ class VendorController extends Controller
         $vendor_profile = vendor_profile::create([
             'vendor_id' => $vendor->id,
             'vendor_avatar' => $request->image ? $newImageName : null,
+            'no_pendaftaran_syarikat' => $request->no_pendaftaran_syarikat,
+            'maklumat_bank'=> $request->maklumat_bank,
+            'no_akaun_kewangan'=> $request->no_akaun_kewangan,
+            'kelas' => $request->kelas,
+            'bidang' => $request->bidang,
             'telefon' => $request->no_telefon, 
             'faks' => $request->faks,
             'alamat' => $request->alamat,
